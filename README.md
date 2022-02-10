@@ -13,6 +13,9 @@
 - [Working with the DOM](#Working-with-the-DOM)
 - [Working with Classes](#Working-with-Classes)
 - [Inheritance](#Inheritance)
+- [Generics Interfaces and Functions](#Generics-Interfaces-and-Functions)
+- [Enums in TypeScript](#Enums-in-TypeScript)
+- [Enums with Interfaces](#Enums-with-Interfaces)
 
 ---
 
@@ -256,6 +259,8 @@ class User implements UserInterface {
   protected firstName: string;
   private lastName: string;
   readonly unchangableName: string;
+  // Static properties are only available on the class itself
+  // they are not available on objects
   static readonly maxAge: number;
 
   constructor(firstName: string, lastName: string) {
@@ -272,7 +277,9 @@ class User implements UserInterface {
 const user = new User("Davey", "Dave");
 ```
 
-#### Inheritance
+---
+
+## Inheritance
 
 ```ts
 class Admin extends User {
@@ -288,4 +295,175 @@ class Admin extends User {
 }
 
 const admin = new Admin("Ben", "Hogan");
+```
+
+---
+
+## Generics Interfaces and Functions
+
+Complete pattern: (break down below pattern)
+
+```ts
+const addId = <T extends Object>(obj: T) => {
+  const id = Math.random().toString(16);
+  return {
+    ...obj,
+    id,
+  };
+};
+
+interface UserInterface {
+  name: string;
+}
+
+const user: UserInterface = {
+  name: "Dave",
+};
+
+const userWithId = addId<UserInterface>(user);
+```
+
+Breakdown:
+
+1. Generic **data types** are written inside `<>`
+2. If we dont provide an argument type the default is `any`
+3. `<T>` > Big T is the default name for `generic` data types
+
+Doing this results in TypeScript `dynamically` assigning the data type of the data being passed in and not statically assigning type `any`.
+
+In the example below by using the big `T`, TypeScript is assigning `user` as type Object when it is being passed into the `addId()` function:
+
+```ts
+const addId = <T>(obj: T) => {
+  const id = Math.random().toString(16);
+  return {
+    ...obj,
+    id,
+  };
+};
+
+const user = {
+  name: "Dave",
+};
+
+const userWithId = addId(user);
+```
+
+We can make this more robust by explicitly stating the type of data we expect to be passed in when defining the function.
+Below we add `<T extends Object>` as this function is designed to take only objects:
+
+```ts
+const addId = <T extends Object>(obj: T) => {
+  const id = Math.random().toString(16);
+  return {
+    ...obj,
+    id,
+  };
+};
+```
+
+When used with `interfaces` TypeScript implicitly assigns the interface as the type.
+In the example below `T` is dynamically replaced by TypeScript with type `UserInterface`:
+
+```ts
+const addId = <T extends Object>(obj: T) => {
+  const id = Math.random().toString(16);
+  return {
+    ...obj,
+    id,
+  };
+};
+
+interface UserInterface {
+  name: string;
+}
+
+const user: UserInterface = {
+  name: "Dave",
+};
+
+const userWithId = addId(user);
+```
+
+We can explicitly state the type by replacing the `T` when we call the function. This makes it more easily reasoned about:
+
+```ts
+const userWithId = addId<UserInterface>(user);
+```
+
+#### Using Generics with Interfaces
+
+In the below example the `generic T` is used so the value of `data` can be dynamic:
+
+```ts
+interface UserInterface<T> {
+  name: string;
+  data: T;
+}
+
+const user1: UserInterface<{ meta: string }> = {
+  name: "Ben",
+  data: {
+    meta: "Fullstack developer",
+  },
+};
+
+const user2: UserInterface<string[]> = {
+  name: "Ben",
+  data: ["one", "two", "three"],
+};
+```
+
+---
+
+## Enums in TypeScript
+
+> It is recommended to use `enums` for all constants within an application
+
+`enum` is the reserved word to create an enumerable, similar to an object, however enums are data types:
+
+- Default values assigned to each property are incremented from zero, so the below example would be:
+  - NotStarted = 0
+  - InProgress = 1
+  - Done = 2
+
+```ts
+enum StatusEnum {
+  NotStarted,
+  InProgress,
+  Done,
+}
+```
+
+However we can use enums with string values and add values to properties with the below pattern:
+
+```ts
+enum StatusEnum {
+  NotStarted = "notStarted",
+  InProgress = "inProgress",
+  Done = "done",
+}
+```
+
+Then we can work with them:
+
+```ts
+console.log(Status.done); // 'done'
+```
+
+---
+
+## Enums with Interfaces
+
+```ts
+enum StatusEnum {
+  NotStarted = "notStarted",
+  InProgress = "inProgress",
+  Done = "done",
+}
+
+interface Task {
+  id: string;
+  status: StatusEnum;
+}
 ```
