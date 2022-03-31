@@ -1,5 +1,7 @@
 # TypeScript-Toolbox
 
+#### Quick Ref:
+
 - [Setup](#Setup)
 - [Variables](#Variables)
 - [Functions](#Functions)
@@ -16,6 +18,10 @@
 - [Generics Interfaces and Functions](#Generics-Interfaces-and-Functions)
 - [Enums in TypeScript](#Enums-in-TypeScript)
 - [Enums with Interfaces](#Enums-with-Interfaces)
+
+#### Deep Dive:
+
+- [Primitive Type Patterns](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/primitive-types.md)
 
 ---
 
