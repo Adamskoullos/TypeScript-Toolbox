@@ -1,9 +1,11 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-const pizzas: number = 5;
+let pizzas: number = 5;
 
-const offerDiscountAvailable = (orders: number): boolean => orders >= 3;
+const updatePizzas = (orders: number): void => {
+  pizzas = orders;
+};
 
-const discountAvailable: boolean = offerDiscountAvailable(pizzas);
+updatePizzas(10);
 
-console.log(discountAvailable);
+console.log(pizzas);
