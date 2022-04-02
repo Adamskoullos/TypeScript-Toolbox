@@ -22,7 +22,7 @@
 #### Deep Dive:
 
 - [Primitive Type Patterns](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/primitive-types.md)
-- [Types]()
+- [Types](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/Types.md)
 
 ---
 
