@@ -23,6 +23,7 @@
 
 - [Primitive Type Patterns](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/primitive-types.md)
 - [Types](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/Types.md)
+- [Type Aliases and Assertions]()
 
 ---
 

@@ -134,9 +134,9 @@ const sum = sumOrder(25);
 
 ### Object Types
 
-**Note**: When defining object types, separate each item with `;` not `,`
+**Note**: On defining a property that is to be an object we can define the objects structure, separate each item with `;` not `,`
 
-- We can create the object type first and then use it later:
+- We can define the object and its types first and then use it later:
 
 ```ts
 let pizza: { name: string; price: number; getName(): string };

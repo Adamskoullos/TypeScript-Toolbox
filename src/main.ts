@@ -1,7 +1,13 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-let toppings: Array<string>;
+type Pizza = { name: string; toppings: number };
 
-toppings = ["cheese", "tomato", "ham"];
+const pizza: Pizza = { name: "BBQ", toppings: 3 };
 
-console.log(toppings);
+const pizzaObjString = JSON.stringify(pizza);
+
+const getPizzaName = (pizza: string): string => {
+  return (JSON.parse(pizza) as Pizza).name;
+};
+
+console.log(getPizzaName(pizzaObjString));
