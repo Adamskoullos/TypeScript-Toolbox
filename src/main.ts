@@ -1,11 +1,7 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-let pizzas: number = 5;
+let toppings: Array<string>;
 
-const updatePizzas = (orders: number): void => {
-  pizzas = orders;
-};
+toppings = ["cheese", "tomato", "ham"];
 
-updatePizzas(10);
-
-console.log(pizzas);
+console.log(toppings);

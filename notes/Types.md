@@ -53,16 +53,138 @@ function orderError(error: string): never {
 
 ### Null Undefined and Strict Null checks
 
+- When using strict mode, `null` and `undefined` are required to be assigned as types if they will be used:
+
+```ts
+let coupon: string | null | undefined = "pizzas25";
+```
+
 ### Union and Literal Types
+
+- The below examples show how we can use the `Union` operator to define all possible accepted `size` arguments
+
+```ts
+let pizzaSize: number = 1;
+
+const selectSize = (size: 1 | 2 | 3): void => {
+  pizzaSize = size;
+};
+
+selectSize(1);
+```
+
+```ts
+let pizzaSize: string = "large";
+
+const selectSize = (size: "small" | "medium" | "large"): void => {
+  pizzaSize = size;
+};
+
+selectSize("medium");
+```
 
 ### Function Types
 
-### Functions na dOptional Arguments
+- If we want to `type` a function before we define its logic we can use the below pattern:
+
+```ts
+let sumOrder: (price: number, quantity: number) => number;
+```
+
+Then when we create the logic we will have the function signature available:
+
+```ts
+sumOrder = (x, y) => x * y;
+
+const sum = sumOrder(25, 5);
+```
+
+### Functions and Optional Arguments
+
+- Use the question mark to tell TypeScript the argument is optional:
+
+```ts
+let sumOrder: (price: number, quantity?: number) => number;
+
+sumOrder = (x, y) => {
+  if (y) {
+    return x * y;
+  }
+  return x;
+};
+
+const sum = sumOrder(25);
+```
+
+The better approach is to use optional arguments with default values as below..
 
 ### Typed Functions and default Params
 
+- If using an optional argument, we can set a default value:
+
+```ts
+let sumOrder: (price: number, quantity?: number) => number;
+
+sumOrder = (x, y = 5) => {
+  return x * y;
+};
+
+const sum = sumOrder(25);
+```
+
 ### Object Types
+
+**Note**: When defining object types, separate each item with `;` not `,`
+
+- We can create the object type first and then use it later:
+
+```ts
+let pizza: { name: string; price: number; getName(): string };
+
+pizza = {
+  name: "Cheese",
+  price: 20,
+};
+```
+
+- or we can do it inline:
+
+```ts
+let pizza: { name: string; price: number; getName(): string } = {
+  name: "Cheese",
+  price: 20,
+  getName() {
+    return pizza.name; // or this.name
+  },
+};
+```
 
 ### Array Types and Generics
 
+- LiteralTypes:
+
+```ts
+let sizes: string[]; // array of strings
+
+sizes = ["1", "2", "3"];
+```
+
+- Generic Types:
+
+```ts
+let toppings: Array<string>;
+
+toppings = ["cheese", "tomato", "ham"];
+```
+
 ### Tuple Types for Arrays
+
+- We can use `Tuple` types when we are using multiple data types within an array when the data is consistently structured the same way:
+
+**Note**: Tuple types are placed within the array at the specific index
+
+```ts
+let pizza: [string, number];
+
+pizza = ["cheese", 20];
+```
