@@ -1,13 +1,19 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-type Pizza = { name: string; toppings: number };
+interface Pizza {
+  name: string;
+  sizes: string[];
+}
 
-const pizza: Pizza = { name: "BBQ", toppings: 3 };
+let pizza: Pizza;
 
-const pizzaObjString = JSON.stringify(pizza);
-
-const getPizzaName = (pizza: string): string => {
-  return (JSON.parse(pizza) as Pizza).name;
+const createPizza = (name: string, sizes: string[]): Pizza => {
+  return {
+    name,
+    sizes,
+  };
 };
 
-console.log(getPizzaName(pizzaObjString));
+pizza = createPizza("Sizzler", ["small", "medium"]);
+
+console.log(pizza);

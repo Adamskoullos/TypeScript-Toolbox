@@ -1,8 +1,11 @@
 "use strict";
 console.log("Firing !!!!!!!!!!!!!!");
-const pizza = { name: "BBQ", toppings: 3 };
-const pizzaObjString = JSON.stringify(pizza);
-const getPizzaName = (pizza) => {
-    return JSON.parse(pizza).name;
+let pizza;
+const createPizza = (name, sizes) => {
+    return {
+        name,
+        sizes,
+    };
 };
-console.log(getPizzaName(pizzaObjString));
+pizza = createPizza("Sizzler", ["small", "medium"]);
+console.log(pizza);

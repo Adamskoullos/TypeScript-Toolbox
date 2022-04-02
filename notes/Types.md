@@ -1,5 +1,20 @@
 ## Types
 
+- [Any](#Any)
+- [Implicit vs Explicit](#Implicit-vs-Explicit)
+- [Void](#Void)
+- [Never](#Never)
+- [Null Undefined and Strict Null checks](#Null-Undefined-and-Strict-Null-checks)
+- [Union and Literal Types](#Union-and-Literal-Types)
+- [Function Types](#Function-Types)
+- [Functions and Optional Arguments](#Functions-and-Optional-Arguments)
+- [Typed Functions and default Params](#Typed-Functions-and-default-Params)
+- [Object Types](#Object-Types)
+- [Array Types and Generics](#Array-Types-and-Generics)
+- [Tuple Types for Arrays](#Tuple-Types-for-Arrays)
+
+---
+
 ### Any
 
 - Data that is not assigned a value or a type when declared is implicitly assigned as type `any`
