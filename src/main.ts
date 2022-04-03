@@ -1,6 +1,10 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-abstract class Sizes {
+interface SizesInterface {
+  availableSizes: string[];
+}
+
+abstract class Sizes implements SizesInterface {
   constructor(private sizes: string[]) {}
 
   get availableSizes() {
@@ -11,10 +15,17 @@ abstract class Sizes {
   }
 }
 
-class Pizza extends Sizes {
+interface PizzaInterface extends SizesInterface {
+  name: string;
+  toppings: string[];
+  addTopping(topping: string): void;
+  currentName: string;
+}
+
+class Pizza extends Sizes implements PizzaInterface {
   toppings: string[] = [];
 
-  constructor(private name: string, sizes: string[]) {
+  constructor(public name: string, sizes: string[]) {
     super(sizes);
   }
 
@@ -22,19 +33,19 @@ class Pizza extends Sizes {
     this.toppings.push(topping);
   }
 
-  get getName() {
+  get currentName() {
     return this.name;
   }
 
-  set setName(name: string) {
+  set currentName(name: string) {
     this.name = name;
   }
 }
 
 const pizza = new Pizza("Big Cheese", ["small", "medium"]);
 
-const pizzaName = pizza.getName;
-pizza.setName = "Big Sizzler";
+const pizzaName = pizza.currentName;
+pizza.currentName = "Big Sizzler";
 pizza.availableSizes = ["large", "Extra Large", "Super Size"];
 
 console.log(pizza);

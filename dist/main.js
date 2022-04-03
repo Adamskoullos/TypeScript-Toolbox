@@ -20,15 +20,15 @@ class Pizza extends Sizes {
     addTopping(topping) {
         this.toppings.push(topping);
     }
-    get getName() {
+    get currentName() {
         return this.name;
     }
-    set setName(name) {
+    set currentName(name) {
         this.name = name;
     }
 }
 const pizza = new Pizza("Big Cheese", ["small", "medium"]);
-const pizzaName = pizza.getName;
-pizza.setName = "Big Sizzler";
+const pizzaName = pizza.currentName;
+pizza.currentName = "Big Sizzler";
 pizza.availableSizes = ["large", "Extra Large", "Super Size"];
 console.log(pizza);
