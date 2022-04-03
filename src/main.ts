@@ -1,20 +1,40 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-class Pizza {
-  name: string;
+abstract class Sizes {
+  constructor(private sizes: string[]) {}
+
+  get availableSizes() {
+    return this.sizes;
+  }
+  set availableSizes(sizes) {
+    this.sizes = sizes;
+  }
+}
+
+class Pizza extends Sizes {
   toppings: string[] = [];
 
-  constructor(name: string) {
-    this.name = name;
+  constructor(private name: string, sizes: string[]) {
+    super(sizes);
   }
 
   addTopping(topping: string): void {
     this.toppings.push(topping);
   }
+
+  get getName() {
+    return this.name;
+  }
+
+  set setName(name: string) {
+    this.name = name;
+  }
 }
 
-const pizza = new Pizza("Cheese");
+const pizza = new Pizza("Big Cheese", ["small", "medium"]);
 
-pizza.addTopping("ham");
+const pizzaName = pizza.getName;
+pizza.setName = "Big Sizzler";
+pizza.availableSizes = ["large", "Extra Large", "Super Size"];
 
 console.log(pizza);
