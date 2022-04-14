@@ -19,12 +19,24 @@
 - [Enums in TypeScript](#Enums-in-TypeScript)
 - [Enums with Interfaces](#Enums-with-Interfaces)
 
-#### Deep Dive:
+#### Basics Deep Dive:
 
 - [Primitive Type Patterns](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/primitive-types.md)
 - [Types](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/Types.md)
 - [Type Aliases and Assertions](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/type-aliases-and-assertions.md)
 - [Interfaces](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes/interfaces.md)
+
+#### Advanced Deep Dive
+
+- [Understanding and Typing "this"]()
+- [Type Queries]()
+- [Mapped Types]()
+- [Exploring Type Guards]()
+- [Advanced Types and Practices]()
+- [Generics and Overloads]()
+- [Enums]()
+- [Declaration Files]()
+- [tsconfig and Compiler Options]()
 
 ---
 
