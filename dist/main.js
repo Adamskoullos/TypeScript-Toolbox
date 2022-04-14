@@ -1,8 +1,11 @@
 "use strict";
 console.log("Firing !!!!!!!!!!!!!!");
-const el = document.querySelector(".app");
-function handleClick(event) {
-    event.preventDefault();
-    console.log(this);
+const person = {
+    name: "Dave",
+    age: 23,
+};
+function getProperty(obj, key) {
+    return obj[key];
 }
-el?.addEventListener("click", handleClick);
+const personName = getProperty(person, "name");
+console.log(personName);

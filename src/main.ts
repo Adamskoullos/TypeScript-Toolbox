@@ -1,11 +1,14 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-const el = document.querySelector(".app");
+const person = {
+  name: "Dave",
+  age: 23,
+};
 
-function handleClick(this: HTMLDivElement, event: Event) {
-  event.preventDefault();
-
-  console.log(this);
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
 }
 
-el?.addEventListener("click", handleClick);
+const personName = getProperty(person, "name");
+
+console.log(personName);

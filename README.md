@@ -28,7 +28,7 @@
 
 #### Advanced Deep Dive
 
-- [Understanding and Typing "this"]()
+- [Understanding and Typing "this"](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/this-key-word.md)
 - [Type Queries]()
 - [Mapped Types]()
 - [Exploring Type Guards]()
