@@ -1,19 +1,47 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-class Song {
-  constructor(public name: string, public duration: number) {}
-}
-class Playlist {
-  constructor(public title: string, public songs: Song[]) {}
-}
-
-function isSong(item: any): item is Song {
-  return item instanceof Song;
+interface Order {
+  id: string;
+  amount: number;
+  currency: string;
 }
 
-function getItemName(item: Song | Playlist): string {
-  if (isSong(item)) {
-    return item.name;
+interface Stripe {
+  card: string;
+  cvc: string;
+  type: "stripe";
+}
+
+interface PayPal {
+  email: string;
+  type: "paypal";
+}
+
+type CheckoutCard = Order & Stripe;
+
+type CheckoutPayPal = Order & PayPal;
+
+const order: Order = {
+  id: "fdjsnbse9445",
+  amount: 100,
+  currency: "USD",
+};
+
+const orderCard: CheckoutCard = {
+  ...order,
+  card: "Barclays",
+  cvc: "045",
+  type: "stripe",
+};
+
+type Payload = CheckoutCard | CheckoutPayPal;
+
+function checkout(payload: Payload) {
+  if (payload.type === "stripe") {
+    console.log("Stripe");
+  } else {
+    console.log("Paypal");
   }
-  return item.title;
 }
+
+const transaction = checkout(orderCard);

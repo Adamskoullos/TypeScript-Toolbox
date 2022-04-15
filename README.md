@@ -31,7 +31,7 @@
 - [Understanding and Typing "this"](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/this-key-word.md)
 - [Type Queries](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/type-queries.md)
 - [Mapped Types](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/mapped-type.md)
-- [Exploring Type Guards]()
+- [Exploring Type Guards](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/type-guards.md)
 - [Advanced Types and Practices]()
 - [Generics and Overloads]()
 - [Enums]()

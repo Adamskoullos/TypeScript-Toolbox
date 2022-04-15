@@ -1,23 +1,22 @@
 "use strict";
 console.log("Firing !!!!!!!!!!!!!!");
-class Song {
-    constructor(name, duration) {
-        this.name = name;
-        this.duration = duration;
+const order = {
+    id: "fdjsnbse9445",
+    amount: 100,
+    currency: "USD",
+};
+const orderCard = {
+    ...order,
+    card: "Barclays",
+    cvc: "045",
+    type: "stripe",
+};
+function checkout(payload) {
+    if (payload.type === "stripe") {
+        console.log("Stripe");
+    }
+    else {
+        console.log("Paypal");
     }
 }
-class Playlist {
-    constructor(title, songs) {
-        this.title = title;
-        this.songs = songs;
-    }
-}
-function isSong(item) {
-    return item instanceof Song;
-}
-function getItemName(item) {
-    if (isSong(item)) {
-        return item.name;
-    }
-    return item.title;
-}
+const transaction = checkout(orderCard);
