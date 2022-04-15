@@ -1,47 +1,24 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-interface Order {
-  id: string;
-  amount: number;
-  currency: string;
+class Pizza {
+  constructor(private name: string, private price: number) {}
 }
 
-interface Stripe {
-  card: string;
-  cvc: string;
-  type: "stripe";
-}
+class List<T> {
+  constructor(private list: T[]) {}
 
-interface PayPal {
-  email: string;
-  type: "paypal";
-}
+  addItem(item: T): void {
+    this.list.push(item);
+  }
 
-type CheckoutCard = Order & Stripe;
-
-type CheckoutPayPal = Order & PayPal;
-
-const order: Order = {
-  id: "fdjsnbse9445",
-  amount: 100,
-  currency: "USD",
-};
-
-const orderCard: CheckoutCard = {
-  ...order,
-  card: "Barclays",
-  cvc: "045",
-  type: "stripe",
-};
-
-type Payload = CheckoutCard | CheckoutPayPal;
-
-function checkout(payload: Payload) {
-  if (payload.type === "stripe") {
-    console.log("Stripe");
-  } else {
-    console.log("Paypal");
+  getList(): T[] {
+    return this.list;
   }
 }
 
-const transaction = checkout(orderCard);
+const list = new List<Pizza>([]);
+
+list.addItem(new Pizza("Cheese", 25));
+list.addItem(new Pizza("Ham", 15));
+
+console.log(list.getList());

@@ -32,7 +32,7 @@
 - [Type Queries](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/type-queries.md)
 - [Mapped Types](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/mapped-type.md)
 - [Exploring Type Guards](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/type-guards.md)
-- [Advanced Types and Practices]()
+- [Advanced Types and Practices](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/advanced-types-and-practices.md)
 - [Generics and Overloads]()
 - [Enums]()
 - [Declaration Files]()
