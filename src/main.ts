@@ -1,14 +1,29 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-const person = {
-  name: "Dave",
-  age: 23,
-};
+type TopLevelProps = "user" | "current_user" | "user_public" | "timeline";
 
-function getProperty<T, K extends keyof T>(obj: T, key: K) {
-  return obj[key];
+interface SecondLevelProps {
+  href: string;
+  type: string;
 }
 
-const personName = getProperty(person, "name");
+type Links = Record<TopLevelProps, SecondLevelProps>;
 
-console.log(personName);
+const links: Links = {
+  user: {
+    href: "url",
+    type: "abc",
+  },
+  current_user: {
+    href: "url",
+    type: "abc",
+  },
+  user_public: {
+    href: "url",
+    type: "abc",
+  },
+  timeline: {
+    href: "url",
+    type: "abc",
+  },
+};

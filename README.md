@@ -29,7 +29,7 @@
 #### Advanced Deep Dive
 
 - [Understanding and Typing "this"](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/this-key-word.md)
-- [Type Queries]()
+- [Type Queries](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/type-queries.md)
 - [Mapped Types]()
 - [Exploring Type Guards]()
 - [Advanced Types and Practices]()
@@ -322,7 +322,56 @@ const admin = new Admin("Ben", "Hogan");
 
 ## Generics Interfaces and Functions
 
-Complete pattern: (break down below pattern)
+Below is the basics of using generics:
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+interface Person2 {
+  name: string;
+  age: number;
+  title: string;
+}
+
+const person: Person = {
+  name: "Dave",
+  age: 23,
+};
+const person2: Person2 = {
+  name: "Ben",
+  age: 33,
+  title: "Mr",
+};
+const person3 = {
+  name: "Mark",
+  age: 44,
+  height: "6ft",
+};
+
+function freezeObject(obj: Person): Readonly<Person> {
+  return Object.freeze(obj);
+}
+// function freezeObject(obj: Person): Readonly<Person>
+
+// Refactored to use generics
+// This allows us to use the function with different object interfaces
+function freezeObject2<T>(obj: T): Readonly<T> {
+  return Object.freeze(obj);
+}
+
+const personOne = freezeObject2<Person>(person);
+// const personOne: Readonly<Person>
+
+// Can be used with different interfaces
+const personTwo = freezeObject2<Person2>(person2);
+
+// Generics can also be used to dynamically assign type from the passed in object
+const personThree = freezeObject2(person3);
+```
+
+And here is a further example: (break down below pattern)
 
 ```ts
 const addId = <T extends Object>(obj: T) => {
