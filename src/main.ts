@@ -1,29 +1,19 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-type TopLevelProps = "user" | "current_user" | "user_public" | "timeline";
-
-interface SecondLevelProps {
-  href: string;
-  type: string;
+class Song {
+  constructor(public name: string, public duration: number) {}
+}
+class Playlist {
+  constructor(public title: string, public songs: Song[]) {}
 }
 
-type Links = Record<TopLevelProps, SecondLevelProps>;
+function isSong(item: any): item is Song {
+  return item instanceof Song;
+}
 
-const links: Links = {
-  user: {
-    href: "url",
-    type: "abc",
-  },
-  current_user: {
-    href: "url",
-    type: "abc",
-  },
-  user_public: {
-    href: "url",
-    type: "abc",
-  },
-  timeline: {
-    href: "url",
-    type: "abc",
-  },
-};
+function getItemName(item: Song | Playlist): string {
+  if (isSong(item)) {
+    return item.name;
+  }
+  return item.title;
+}

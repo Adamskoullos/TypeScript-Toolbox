@@ -1,20 +1,23 @@
 "use strict";
 console.log("Firing !!!!!!!!!!!!!!");
-const links = {
-    user: {
-        href: "url",
-        type: "abc",
-    },
-    current_user: {
-        href: "url",
-        type: "abc",
-    },
-    user_public: {
-        href: "url",
-        type: "abc",
-    },
-    timeline: {
-        href: "url",
-        type: "abc",
-    },
-};
+class Song {
+    constructor(name, duration) {
+        this.name = name;
+        this.duration = duration;
+    }
+}
+class Playlist {
+    constructor(title, songs) {
+        this.title = title;
+        this.songs = songs;
+    }
+}
+function isSong(item) {
+    return item instanceof Song;
+}
+function getItemName(item) {
+    if (isSong(item)) {
+        return item.name;
+    }
+    return item.title;
+}
