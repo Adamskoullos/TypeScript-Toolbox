@@ -1,24 +1,19 @@
 console.log("Firing !!!!!!!!!!!!!!");
 
-class Pizza {
-  constructor(private name: string, private price: number) {}
+enum Sizes {
+  Small = "small",
+  Medium = "medium",
+  Large = "large",
 }
 
-class List<T> {
-  constructor(private list: T[]) {}
+console.log(Sizes.Small); // small
 
-  addItem(item: T): void {
-    this.list.push(item);
-  }
+let selected: Sizes = Sizes.Small; // Using Sizes as a type and giving a default
 
-  getList(): T[] {
-    return this.list;
-  }
-}
+const updateSize = (size: Sizes): void => {
+  selected = size;
+};
 
-const list = new List<Pizza>([]);
+updateSize(Sizes.Large);
 
-list.addItem(new Pizza("Cheese", 25));
-list.addItem(new Pizza("Ham", 15));
-
-console.log(list.getList());
+console.log(selected); // large
