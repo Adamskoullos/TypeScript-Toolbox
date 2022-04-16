@@ -34,9 +34,9 @@
 - [Exploring Type Guards](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/type-guards.md)
 - [Advanced Types and Practices](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/advanced-types-and-practices.md)
 - [Generics and Overloads](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/generics-and-overloads.md)
-- [Enums]()
-- [Declaration Files]()
-- [tsconfig and Compiler Options]()
+- [Enums](https://github.com/Adamskoullos/TypeScript-Toolbox/blob/main/notes-advanced.md/enums.md)
+- [Declaration Files]() **Todo**
+- [tsconfig and Compiler Options]() **Todo**
 
 ---
 
